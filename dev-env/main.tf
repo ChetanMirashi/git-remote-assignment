@@ -1,0 +1,23 @@
+module "infra_services" {
+ source = "../modules/services/infra_services"
+ cloud_env = "dev-env"
+ vpc_tag_name = "vpc"
+ instance_count = "1"
+ instance_type = "t2.micro"
+ vpc_cidr = "10.7.0.0/16"
+ public_cidrs = ["10.7.1.0/24","10.7.3.0/24"]
+ private_cidrs = ["10.7.2.0/24","10.7.4.0/24"]
+ bucket_name = "chetan-assignment-bucket-testing"
+ instance_key_name = "chetan-mumbai"
+ region = "ap-south-1"
+ db_instance_identifier = "assignment-database"
+ db_username = "admin"
+ db_password = "password!123"
+ db_instance_class = "db.t3.micro"
+ storage_type = "gp2"
+ db_subnet_group_name = "assignment-subnet-group"
+ db_parameter_group_name = "assignment-parameter-group"
+ db_option_group_name = "assignment-option-group"
+ db_engine = "mysql"
+ db_engine_version = "8.0.35"
+}
